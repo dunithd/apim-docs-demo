@@ -1,6 +1,8 @@
 pipeline {
     agent any
- 
+    environment {
+        DEV_ENV = 'dev'
+    }
     stages {
         stage('Checking out project from GitHub') {
             steps {
@@ -11,7 +13,11 @@ pipeline {
         }
         stage('Depolying to DEV') {
             steps {
-                echo 'Deploying to DEV'
+                echo 'Logging into $DEV_ENV'
+                withCredentials([usernamePassword(credentialsId: 'apim_dev', usernameVariable: 'DEV_USERNAME', passwordVariable: 'DEV_PASSWORD')]) {
+                    sh 'apictl login $DEV_ENV -u $DEV_USERNAME -p $DEV_PASSWORD -k'                        
+                }
+                echo 'Deploying to $DEV_ENV'
             }
         }
         stage('Depolying to PROD') {
