@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment {
         DEV_ENV = 'dev'
+        API_DIR = './SampleStore'
     }
     stages {
         stage('Checking out project from GitHub') {
@@ -18,6 +19,7 @@ pipeline {
                     sh 'apictl login $DEV_ENV -u $DEV_USERNAME -p $DEV_PASSWORD -k'                        
                 }
                 echo 'Deploying to $DEV_ENV'
+                sh 'apictl import-api -f $API_DIR -e $DEV_ENV -k --preserve-provider --update --verbose'
             }
         }
         stage('Depolying to PROD') {
