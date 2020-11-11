@@ -13,6 +13,9 @@ pipeline {
             }
         }
         stage('Depolying to DEV') {
+            environment{
+                RETRY = '80'
+            }
             steps {
                 echo 'Logging into $DEV_ENV'
                 withCredentials([usernamePassword(credentialsId: 'apim_dev', usernameVariable: 'DEV_USERNAME', passwordVariable: 'DEV_PASSWORD')]) {
