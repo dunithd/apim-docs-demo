@@ -1,3 +1,3 @@
-# apim-docs-demo
+# Store API
 
-Adding test stuff
+This API exposes various functionalities of a sample ecommerce store.
