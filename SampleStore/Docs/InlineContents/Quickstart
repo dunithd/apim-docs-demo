@@ -1,6 +1,6 @@
 [TOC]
 
-## Introduction
+## Introduction to Store API
 
 In our previous tutorial, we buit a simple Ballerina microservice that returns a JSON array of Todo list items. There, we did everthing manually from building the project, generating a Docker image and pushing it to Azure Container Registry and deploying into Azure Kubernetes Service.
 
