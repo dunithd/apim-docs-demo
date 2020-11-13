@@ -4,7 +4,7 @@
   summary: QSG
   sourceType: MARKDOWN
   visibility: API_LEVEL
--
+ -
   type: HOWTO
   name: Developer_Guide.md
   summary: Developer guide for the API
